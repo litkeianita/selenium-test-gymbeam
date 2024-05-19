@@ -18,6 +18,8 @@ public class MainPage extends BasePage {
     
     private final By titleLocator = By.className("base");
 
+    private final By errorMessageLocator = By.xpath("//div[@data-ui-id='message-error']");
+
     public MainPage(WebDriver driver) {
         super(driver);
         this.driver.get("https://gymbeam.hu");
@@ -72,5 +74,11 @@ public class MainPage extends BasePage {
     public String getTitle(){
         WebElement title = waitForVisibilityAndReturn(titleLocator);
         return title.getText();
+    }
+
+    public String getLoginErrorMessage(){
+        WebElement message = waitForVisibilityAndReturn(errorMessageLocator);
+        System.out.println("error: " + message.getText());
+        return message.getText();
     }
 }
