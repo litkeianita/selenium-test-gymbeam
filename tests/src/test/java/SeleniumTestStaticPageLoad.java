@@ -24,7 +24,7 @@ public class SeleniumTestStaticPageLoad {
     }
 
 
-    //@Test
+    @Test
     public void testStaticPages() {
         for (String url : urls) {
             this.driver.get(url);

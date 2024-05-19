@@ -48,7 +48,7 @@ public class SeleniumTestSearch {
     }
 
     @Test
-    public void testSearchHistory() throws InterruptedException {
+    public void testSearchHistory() {
         MainPage mainPage = new MainPage(this.driver);
 
         String prevSite = this.driver.getTitle();

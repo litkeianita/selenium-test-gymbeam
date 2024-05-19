@@ -101,7 +101,7 @@ public class LoginPage extends BasePage {
 
         WebElement logoutButton = waitForVisibilityAndReturn(logOutLocator);
         actions.moveToElement(logoutButton);
-        //actions.click().build().perform();
+        
         logoutButton.click();
     }
 

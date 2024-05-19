@@ -58,7 +58,6 @@ public class SeleniumTestLogin {
 
         loginPage.clickLogOut();
 
-        //assertFalse(loginPage.getLogoutSuccessMessage().isEmpty());
         assertTrue(loginPage.getLogoutSuccessMessage().contains("Kijelentkezett"));
     }
 
