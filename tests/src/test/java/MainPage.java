@@ -1,4 +1,5 @@
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 
 public class MainPage extends BasePage {
     //private String username = "lobiyij220@neixos.com";
@@ -6,6 +7,7 @@ public class MainPage extends BasePage {
 
     private final By userIconLocator = By.xpath("//a[@href='/customer/account/login']");
     private final By mainPageIconLocator = By.xpath("//a[@title='GymBeam s.r.o.']");
+    private final By logOutLocator = By.xpath("//a[@href='https://gymbeam.hu/customer/account/logout/']");
 
     private final By emailInputFieldLocator = By.id("email");
     private final By passwordInputFieldLocator = By.id("pass");
@@ -19,15 +21,11 @@ public class MainPage extends BasePage {
     private final By titleLocator = By.className("base");
 
     private final By errorMessageLocator = By.xpath("//div[@data-ui-id='message-error']");
+    private final By successfulLogoutMessageLocator = By.xpath("//span[@data-ui-id='page-title-wrapper']");
 
     public MainPage(WebDriver driver) {
         super(driver);
         this.driver.get("https://gymbeam.hu");
-
-        /*Set<Cookie> cookiesList =  driver.manage().getCookies();
-        for(Cookie getcookies :cookiesList) {
-            System.out.println(getcookies );
-        }*/        
     }
 
     public void clickLoginPage(){
@@ -79,6 +77,26 @@ public class MainPage extends BasePage {
     public String getLoginErrorMessage(){
         WebElement message = waitForVisibilityAndReturn(errorMessageLocator);
         System.out.println("error: " + message.getText());
+        return message.getText();
+    }
+
+    public void clickLogOut(){
+        WebElement loginField = waitForVisibilityAndReturn(userIconLocator);
+        
+        Actions actions = new Actions(this.driver);
+
+        actions.moveToElement(loginField).perform();
+
+        WebElement logoutButton = waitForVisibilityAndReturn(logOutLocator);
+        
+        actions.moveToElement(logoutButton);
+        //actions.click().build().perform();
+        logoutButton.click();
+    }
+
+    public String getLogoutSuccessMessage(){
+        WebElement message = waitForVisibilityAndReturn(successfulLogoutMessageLocator);
+        System.out.println("message: " + message.getText());
         return message.getText();
     }
 }
