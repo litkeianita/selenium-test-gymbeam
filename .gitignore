@@ -1,2 +1,8 @@
 build
 .gradle
+.idea/misc.xml
+.idea/vcs.xml
+.idea/workspace.xml
+tests/bin/test/BasePage.class
+tests/bin/test/MainPage.class
+tests/bin/test/SeleniumTestGymBeam.class
