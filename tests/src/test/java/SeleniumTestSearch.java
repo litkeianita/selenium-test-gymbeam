@@ -4,7 +4,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.URL;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import java.net.MalformedURLException;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,7 +17,7 @@ public class SeleniumTestSearch {
         this.driver.manage().window().maximize();
     }
 
-     /*@Test
+    @Test
     public void testSearch() throws InterruptedException {
         MainPage mainPage = new MainPage(this.driver);
 
@@ -47,7 +46,6 @@ public class SeleniumTestSearch {
         loginPage.clickOnItalok();
         System.out.println(this.driver.getTitle());
     }
-    */
 
     @Test
     public void testSearchHistory() throws InterruptedException {

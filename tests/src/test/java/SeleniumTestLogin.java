@@ -18,7 +18,7 @@ public class SeleniumTestLogin {
         this.driver.manage().window().maximize();
     }
 
-    /*@Test
+    @Test
     public void testLoginCorrectly() throws InterruptedException {
         LoginPage loginPage = new LoginPage(this.driver);
 
@@ -63,7 +63,7 @@ public class SeleniumTestLogin {
 
         //assertFalse(loginPage.getLogoutSuccessMessage().isEmpty());
         assertTrue(loginPage.getLogoutSuccessMessage().contains("Kijelentkezett"));
-    } */
+    }
 
     @After
     public void close() {

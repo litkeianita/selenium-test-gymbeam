@@ -6,3 +6,4 @@ build
 tests/bin/test/BasePage.class
 tests/bin/test/MainPage.class
 tests/bin/test/SeleniumTestGymBeam.class
+*.class

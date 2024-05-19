@@ -4,8 +4,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import java.net.MalformedURLException;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -26,7 +24,7 @@ public class SeleniumTestStaticPageLoad {
     }
 
 
-    /*@Test
+    @Test
     public void testStaticPages() {
         for (String url : urls) {
             driver.get(url);
@@ -38,7 +36,7 @@ public class SeleniumTestStaticPageLoad {
         MainPage page = new MainPage(driver, url);
 
         assertTrue(page.driver.getTitle() != null);
-    }*/
+    }
 
 
     @After
