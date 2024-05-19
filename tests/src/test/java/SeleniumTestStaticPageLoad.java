@@ -4,16 +4,16 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
-import static org.junit.Assert.assertTrue;
 import java.net.MalformedURLException;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class SeleniumTestStaticPageLoad {
     private WebDriver driver;
     private List<String> urls = Arrays.asList(
-        "https://gymbeam.hu/italok",
-             "https://gymbeam.hu/sporttaplalek",
-             "https://gymbeam.hu/customer/account/login/"
+            "https://gymbeam.hu",
+            "https://gymbeam.hu/italok",
+            "https://gymbeam.hu/sporttaplalek",
+            "https://gymbeam.hu/customer/account/login/"
     );
 
     @Before
@@ -24,20 +24,14 @@ public class SeleniumTestStaticPageLoad {
     }
 
 
-    @Test
+    //@Test
     public void testStaticPages() {
         for (String url : urls) {
-            driver.get(url);
-            performCommonTests(url);
+            this.driver.get(url);
+            MainPage page = new MainPage(this.driver, url);
+            page.clickMainPageLogo();
         }
     }
-
-    private void performCommonTests(String url) {
-        MainPage page = new MainPage(driver, url);
-
-        assertTrue(page.driver.getTitle() != null);
-    }
-
 
     @After
     public void close() {

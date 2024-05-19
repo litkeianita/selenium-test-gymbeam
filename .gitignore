@@ -7,3 +7,9 @@ tests/bin/test/BasePage.class
 tests/bin/test/MainPage.class
 tests/bin/test/SeleniumTestGymBeam.class
 *.class
+tests/bin/test/SeleniumTestStaticPageLoad.class
+tests/bin/test/SeleniumTestLogin.class
+tests/bin/test/LoginPage.class
+tests/bin/test/SeleniumTestLogin.class
+tests/bin/test/SeleniumTestSearch.class
+tests/bin/test/SeleniumTestStaticPageLoad.class

@@ -16,7 +16,7 @@ public class LoginPage extends BasePage {
     private final By allowAllCookiesButtonLocator = By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll");
     private final By declineAllCookiesButtonLocator = By.id("CybotCookiebotDialogBodyButtonDecline");
 
-    private final By nameLocator = By.xpath("//span[@class='logged-in']");
+    private final By userNameLocator = By.xpath("//span[@class='logged-in']");
     
     private final By titleLocator = By.className("base");
 
@@ -24,7 +24,7 @@ public class LoginPage extends BasePage {
     private final By successfulLogoutMessageLocator = By.xpath("//span[@data-ui-id='page-title-wrapper']");
 
     private final By searchBarLocator = By.id("search");
-    private final By itemLocator = By.xpath("//a[@href='https://gymbeam.hu/italok']");
+    private final By italokButtonLocator = By.xpath("//a[@href='https://gymbeam.hu/italok']");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -56,7 +56,7 @@ public class LoginPage extends BasePage {
         loginButton.click();
     }
 
-    public void clickAcceptCookies(){
+    public void clickAcceptAllCookies(){
         WebElement cookiesButton = waitForVisibilityAndReturn(allowAllCookiesButtonLocator);
         cookiesButton.click();
     }
@@ -75,7 +75,7 @@ public class LoginPage extends BasePage {
         WebElement name;
         String userName;
         do {
-            name = waitForVisibilityAndReturn(nameLocator);
+            name = waitForVisibilityAndReturn(userNameLocator);
             userName = name.getText();
             System.out.println("user name: " + userName);
         } while (userName.isEmpty());
@@ -97,11 +97,9 @@ public class LoginPage extends BasePage {
         WebElement loginField = waitForVisibilityAndReturn(userIconLocator);
         
         Actions actions = new Actions(this.driver);
-
         actions.moveToElement(loginField).perform();
 
         WebElement logoutButton = waitForVisibilityAndReturn(logOutLocator);
-        
         actions.moveToElement(logoutButton);
         //actions.click().build().perform();
         logoutButton.click();
@@ -119,7 +117,7 @@ public class LoginPage extends BasePage {
     }
 
     public void clickOnItalok(){
-        WebElement item = waitForVisibilityAndReturn(itemLocator);
+        WebElement item = waitForVisibilityAndReturn(italokButtonLocator);
         item.click();
     }
 }

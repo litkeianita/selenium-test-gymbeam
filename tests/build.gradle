@@ -17,5 +17,6 @@ dependencies {
 }
 
 test {
+    maxParallelForks = Runtime.runtime.availableProcessors() / 2 ?: 1
     testLogging.showStandardStreams = true
 }

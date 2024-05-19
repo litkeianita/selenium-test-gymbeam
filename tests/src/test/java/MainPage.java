@@ -10,14 +10,14 @@ public class MainPage extends BasePage {
     private final By allowAllCookiesButtonLocator = By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll");
     private final By declineAllCookiesButtonLocator = By.id("CybotCookiebotDialogBodyButtonDecline");
 
-    private final By nameLocator = By.xpath("//span[@class='logged-in']");
+    private final By userNameLocator = By.xpath("//span[@class='logged-in']");
     
     private final By titleLocator = By.className("base");
 
     private final By successfulLogoutMessageLocator = By.xpath("//span[@data-ui-id='page-title-wrapper']");
 
     private final By searchBarLocator = By.id("search");
-    private final By itemLocator = By.xpath("//a[@href='https://gymbeam.hu/italok']");
+    private final By italokButtonLocator = By.xpath("//a[@href='https://gymbeam.hu/italok']");
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -50,8 +50,13 @@ public class MainPage extends BasePage {
     }
 
     public String getUserName(){
-        WebElement name = waitForVisibilityAndReturn(nameLocator);
-        System.out.println("user name: " + name.getText());
+        WebElement name;
+        String userName;
+        do {
+            name = waitForVisibilityAndReturn(userNameLocator);
+            userName = name.getText();
+            System.out.println("user name: " + userName);
+        } while (userName.isEmpty());
         return name.getText();
     }
 
@@ -60,7 +65,7 @@ public class MainPage extends BasePage {
         return title.getText();
     }
 
-    public void clickLogOut(){
+    public void clickLogout(){
         WebElement loginField = waitForVisibilityAndReturn(userIconLocator);
         
         Actions actions = new Actions(this.driver);
@@ -86,7 +91,7 @@ public class MainPage extends BasePage {
     }
 
     public void clickOnItalok(){
-        WebElement item = waitForVisibilityAndReturn(itemLocator);
+        WebElement item = waitForVisibilityAndReturn(italokButtonLocator);
         item.click();
     }
 }

@@ -19,7 +19,7 @@ public class SeleniumTestLogin {
     }
 
     @Test
-    public void testLoginCorrectly() throws InterruptedException {
+    public void testLoginCorrectly() {
         LoginPage loginPage = new LoginPage(this.driver);
 
         loginPage.clickDeclineCookies();
@@ -32,31 +32,28 @@ public class SeleniumTestLogin {
     }
    
     @Test
-    public void testLoginIncorrectly() throws InterruptedException {
+    public void testLoginIncorrectly() {
         LoginPage loginPage = new LoginPage(this.driver);
 
         loginPage.clickDeclineCookies();
 
         loginPage.setEmail("wrong.email@something.hu");
-        loginPage.setPassword("**");
-
+        loginPage.setPassword("******");
         loginPage.clickLoginButton();
         
         assertFalse(loginPage.getLoginErrorMessage().isEmpty());
     }
 
     @Test
-    public void testLoginThenLogout() throws InterruptedException {
+    public void testLoginThenLogout() {
         LoginPage loginPage = new LoginPage(this.driver);
 
         loginPage.clickDeclineCookies();
 
         loginPage.setEmail("lobiyij220@neixos.com");
         loginPage.setPassword("Selenium.gymbeam");
-
         loginPage.clickLoginButton();
         
-        loginPage.getUserName();
         assertTrue(loginPage.getUserName().contains("selenium"));
 
         loginPage.clickLogOut();
